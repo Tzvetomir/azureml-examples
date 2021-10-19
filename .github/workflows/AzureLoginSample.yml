@@ -9,7 +9,7 @@ jobs:
     - name: Log in with Azure
       uses: azure/login@v1
       with: 
-        credentials: ${{ secrets.AZURML }}
+        creds: ${{ secrets.AZURML }}
     - name: Azure PowerShell Action
       uses: Azure/powershell@v1
       with:
