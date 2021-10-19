@@ -12,8 +12,7 @@ jobs:
       uses: Azure/cli@1.0.4
       with:
         inlineScript: ${{secrets.AZUREML}}
-        azcliversion: latest
-
+     
     - name: Run Az CLI script
       run: |
         az webapp list --query "[?state=='Running']"
