@@ -9,8 +9,7 @@ jobs:
     steps:
 
     - name: Azure CLI Action
-     uses: Azure/cli@1.0.4
-
+      uses: Azure/cli@1.0.4
       with:
         creds: ${{secrets.AZUREML}}
         enable-AzPSSession: true
