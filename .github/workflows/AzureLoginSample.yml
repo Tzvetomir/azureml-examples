@@ -7,10 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Log in with Azure
-      with: # Set Azure credentials secret as an input
+      with: 
         credentials: ${{ secrets.AZURML }}
-      ##env: # Or as an environment variable
-        ###credentials: ${{ secrets.AZURML }}        
     - name: Azure PowerShell Action
       uses: Azure/powershell@v1
       with:
