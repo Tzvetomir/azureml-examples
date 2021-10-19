@@ -9,7 +9,7 @@ jobs:
       uses: azure/actions/login@v1
       with:
         enable-AzPSSession: true
-        creds: ${{ secrets.AZURML }}
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: Azure PowerShell Action
       uses: Azure/powershell@v1
       with:
