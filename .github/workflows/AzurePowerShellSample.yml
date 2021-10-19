@@ -11,7 +11,7 @@ jobs:
     - name: Azure CLI Action
       uses: Azure/cli@1.0.4
       with:
-        inlineScript: ${{secrets.AZUREML}}
+        creds: ${{secrets.AZUREML}}
      
     - name: Run Az CLI script
       run: |
