@@ -6,13 +6,14 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Log in with Azure
-        uses: azure/login@v1
-        with:
-          creds: '${{ secrets.AZURML }}'
-          enable-AzPSSession: true
-      - name: Azure PowerShell Action
-        uses: Azure/powershell@v1
-        with:
+    - name: Log in with Azure
+      with: # Set Azure credentials secret as an input
+        credentials: ${{ secrets.AZURML }}
+      env: # Or as an environment variable
+        credentials: ${{ secrets.AZURML }}
+        
+    - name: Azure PowerShell Action
+      uses: Azure/powershell@v1
+      with:
           inlineScript: Get-AzVM -ResourceGroupName "tt_resource_group"
           azPSVersion: 3.1.0
