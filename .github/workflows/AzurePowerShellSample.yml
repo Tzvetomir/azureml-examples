@@ -1,0 +1,27 @@
+on: [push]
+
+name: AzurePowerShellSample
+
+jobs:
+
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Azure CLI Action
+     uses: Azure/cli@1.0.4
+
+      with:
+        creds: ${{secrets.AZUREML}}
+        enable-AzPSSession: true
+
+    - name: Run Az CLI script
+      run: |
+        az webapp list --query "[?state=='Running']"
+
+    - name: Run Azure PowerShell script
+      uses: azure/powershell@v1
+      with:
+        azPSVersion: '3.1.0'
+        inlineScript: |
+          Get-AzVM -ResourceGroupName "ActionsDemo"
