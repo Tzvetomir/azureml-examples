@@ -38,7 +38,7 @@ jobs:
     - name: azure login
       uses: azure/login@v1
       with:
-        creds: ${{secrets.AZURML}}
+        creds: ${{secrets.AzurML}}
     - name: install azmlcli
       run: az extension add -n azure-cli-ml -y
     - name: attach to workspace
